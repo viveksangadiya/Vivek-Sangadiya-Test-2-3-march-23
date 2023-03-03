@@ -1,0 +1,33 @@
+<div class="container-fluid my-12">
+  <form>
+    <div class="mb-7">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="FieldsetCheck" (click)="getData()" />
+        <label class="form-check-label" for="disabledFieldsetCheck">
+          Virtual Program
+        </label>
+      </div>
+    </div>
+  </form>
+
+  <mat-form-field>
+    <mat-label>Select Program</mat-label>
+    <mat-select  multiple [(value)]="selectPrograms" (selectionChange)="onSelectionChange($event)">
+      <mat-option *ngFor="let program of programList" [value]=" program['programId']">{{
+        program['programName']
+        }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Select Project</mat-label>
+    <mat-select multiple [(value)]="selectPrograms"  (selectionChange)="onSelectionChange($event)" >
+      <mat-option *ngFor="let project of resultData" [value]="project">{{
+        project['projectName']
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+</div>
+<router-outlet></router-outlet>
